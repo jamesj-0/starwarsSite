@@ -1,7 +1,8 @@
-// import React from 'react';
+import React from 'react';
+import * as SC from './styles/styledComponents';
 
 function App() {
-  return null;
+  return <SC.MainContainer />
 }
 
 export default App;
