@@ -7,7 +7,7 @@ import TopicCard from './components/topicCard/topicCard';
 
 function App() {
   // return <NavigationBar topicItems={topicItems} />;
-  return <TopicCard />;
+  return <TopicCard titleText="title Text" />;
 }
 
 export default App;
