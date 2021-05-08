@@ -13,7 +13,6 @@ export default function useFetch({ inputObject }) {
 
   requestObject.headers = {
     'content-type': 'application/JSON',
-    'Authorization': window.localStorage.getItem('access token') || '',
   };
 
   let options = {};

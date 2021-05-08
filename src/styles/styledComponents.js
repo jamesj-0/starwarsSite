@@ -57,7 +57,50 @@ export const NavigationItem = styled.li`
   text-transform: uppercase;
 `;
 
-export const TopicPage = styled.article``;
+export const TopicPage = styled.article`
+  display: flex;
+  flex-direction: column;
+  background-color: #282727;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #5a2b34;
+  width: 50%rem;
+`;
+
+export const TopicInfo = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& h3 {
+		margin: 0 4rem 0 0;
+		color: #fff;
+    font-family: DINCondensed;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 4px;
+	  text-transform: uppercase;
+	}
+
+  & ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  & ul span {
+    display: flex;
+    margin: 1rem 0 0 0;
+		justiy
+  }
+
+  & li {
+    margin: 0 1rem 0 0;
+		font-family: DINCondensed;
+  	font-size: 20px;
+	  color: #7d7d7d;
+		min-width: 5rem;
+		text-transform: capitalize;
+  }
+`;
 
 export const TopicCard = styled.figure`
   width: 13rem;
@@ -93,7 +136,9 @@ export const TopicCard = styled.figure`
   }
 `;
 
-export const CardRow = styled.div``;
+export const CardRow = styled.div`
+  display: flex;
+`;
 
 export const TopicSubtitle = styled.h3``;
 
@@ -103,4 +148,12 @@ export const StarWarsLogo = styled.span``;
 
 export const MenuContainer = styled.div`
   position: relative;
+`;
+
+export const StyledLineBreak = styled.div`
+  display: block;
+  width: 80%;
+  margin: 1rem auto;
+  background: #464646;
+  height: 1px;
 `;
