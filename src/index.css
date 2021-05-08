@@ -1,0 +1,11 @@
+html,
+body {
+  background: #36383a;
+}
+
+@font-face {
+  font-family: 'DINCondensed';
+  src: local('DINCondensed'),
+    url('./fonts/DINCondensedWeb.otf') format('opentype');
+  font-weight: normal;
+}

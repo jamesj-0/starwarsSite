@@ -1,7 +1,6 @@
 {
 	"extends": [
 		"airbnb",
-		"plugin:jsx-a11y/recommended",
 		"prettier"
 	],
 	"parser": "babel-eslint",
@@ -12,10 +11,10 @@
 		"browser": true
 	},
 	"parserOptions": {
-						"ecmaFeatures": {
-							"jsx": true
-						},
-						"ecmaVersion": 11,
+		"ecmaFeatures": {
+			"jsx": true
+		  },
+		"ecmaVersion": 11,
 		"sourceType": "module"
 	},
 	"rules": {
@@ -39,8 +38,5 @@
 		"react/jsx-one-expression-per-line": [
 			0
 		]
-	},
-	"plugins": [
-		"jsx-a11y"
-	]
+	}
 }

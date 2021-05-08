@@ -18,7 +18,7 @@ export default function useFetch({ inputObject }) {
 
   let options = {};
 
-  /* For resuability we could add a request body for post & update methods */
+  /* For resuability we should add a request body for the different methods */
   if (requestObject.method === 'GET') {
     options = {
       url: requestObject.endpoint,
