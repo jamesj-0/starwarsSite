@@ -59,7 +59,39 @@ export const NavigationItem = styled.li`
 
 export const TopicPage = styled.article``;
 
-export const TopicCard = styled.figure``;
+export const TopicCard = styled.figure`
+  width: 13rem;
+  background-color: #282727;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #5a2b34;
+  overflow-y: hidden;
+  height: 10rem;
+  position: relative;
+  cursor: pointer;
+  & p {
+    font-family: DINCondensed;
+    font-size: 22px;
+    color: #fff;
+    margin: 1rem;
+    text-transform: uppercase;
+  }
+
+  & span {
+    background: linear-gradient(
+      0deg,
+      #282727 25.52%,
+      rgba(139, 96, 96, 0) 100%
+    );
+    display: block;
+
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+`;
 
 export const CardRow = styled.div``;
 
