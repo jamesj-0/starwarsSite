@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-const-assign */
 import { useRef, useReducer, useEffect } from 'react';
 import axios from 'axios';
 
@@ -40,7 +42,7 @@ export default function useFetch({ inputObject }) {
   }, initialState);
 
   useEffect(() => {
-    const cancelRequest = false;
+    let cancelRequest = false;
     if (!requestObject.endpoint) return;
     const fetchData = async () => {
       dispatch({ type: 'FETCHING' });
@@ -66,9 +68,9 @@ export default function useFetch({ inputObject }) {
 
     fetchData();
 
-    // return function cleanup() {
-    //   cancelRequest = true;
-    // };
+    return function cleanup() {
+      cancelRequest = true;
+    };
   }, [requestObject.endpoint]);
 
   return { state };

@@ -8,15 +8,21 @@ export const Footer = styled.footer``;
 
 export const MainContainer = styled.main``;
 
-export const NavigationBar = styled.nav``;
+export const NavigationBar = styled.nav`
+  z-index: 1;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+`;
 
 export const NavigationList = styled.ul`
   margin: 0 0 0 1rem;
   list-style: none;
   padding: 0;
+  background: #282727;
 
   ${({ open }) =>
-    open ? 'transform: translatex(0%);' : 'transform: translatex(-30%);'}
+    open ? 'transform: translatex(0%);' : 'transform: translatex(-130%);'}
 
   transition: transform 0.2s ease;
   & p {
@@ -65,21 +71,35 @@ export const TopicPage = styled.article`
   border-width: 2px;
   border-color: #5a2b34;
   width: 50%rem;
+
+  & .card-data-title {
+    margin: 2rem auto;
+    color: #fff;
+    font-family: DINCondensed;
+    width: 80%;
+
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
 `;
 
 export const TopicInfo = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	& h3 {
-		margin: 0 4rem 0 0;
-		color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4rem;
+
+  & h3 {
+    margin: 0 4rem 0 0;
+    color: #fff;
     font-family: DINCondensed;
     font-size: 22px;
     font-weight: 300;
     letter-spacing: 4px;
-	  text-transform: uppercase;
-	}
+    text-transform: uppercase;
+  }
 
   & ul {
     list-style: none;
@@ -89,16 +109,17 @@ export const TopicInfo = styled.div`
   & ul span {
     display: flex;
     margin: 1rem 0 0 0;
-		justiy
+    justify-content: space-between;
   }
 
   & li {
     margin: 0 1rem 0 0;
-		font-family: DINCondensed;
-  	font-size: 20px;
-	  color: #7d7d7d;
-		min-width: 5rem;
-		text-transform: capitalize;
+    font-family: DINCondensed;
+    font-size: 20px;
+    color: #7d7d7d;
+    min-width: 5rem;
+    max-width: 23rem;
+    text-transform: capitalize;
   }
 `;
 
@@ -112,6 +133,8 @@ export const TopicCard = styled.figure`
   height: 10rem;
   position: relative;
   cursor: pointer;
+  margin: 0 3rem 1rem 0;
+
   & p {
     font-family: DINCondensed;
     font-size: 22px;
@@ -138,6 +161,8 @@ export const TopicCard = styled.figure`
 
 export const CardRow = styled.div`
   display: flex;
+  width: 80%;
+  margin: 1rem auto;
 `;
 
 export const TopicSubtitle = styled.h3``;
