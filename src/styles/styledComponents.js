@@ -19,6 +19,14 @@ export const NavigationList = styled.ul`
     open ? 'transform: translatex(0%);' : 'transform: translatex(-130%);'}
 
   transition: transform 0.2s ease;
+
+  @media (max-width: 768px) {
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+  }
+
   & p {
     color: #7d7d7d;
     font-family: DINCondensed;
@@ -55,6 +63,10 @@ export const NavigationItem = styled.li`
   font-size: 22px;
   margin: 0.5rem 0;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 42px;
+  }
 `;
 
 export const TopicPage = styled.article`
@@ -156,6 +168,9 @@ export const CardRow = styled.div`
   display: flex;
   width: 80%;
   margin: 1rem auto;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const MainText = styled.h1`
@@ -167,6 +182,10 @@ export const MainText = styled.h1`
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 4px;
+
+  @media (max-width: 768px) {
+    font-size: 27px;
+  }
 `;
 
 export const PaginationContainer = styled.div`
