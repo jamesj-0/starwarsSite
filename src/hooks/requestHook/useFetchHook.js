@@ -1,9 +1,8 @@
 /* eslint-disable consistent-return */
-/* eslint-disable no-const-assign */
 import { useRef, useReducer, useEffect } from 'react';
 import axios from 'axios';
 
-export default function useFetch({ inputObject }) {
+const useFetch = ({ inputObject }) => {
   const requestObject = inputObject;
   const cache = useRef({});
 
@@ -74,4 +73,6 @@ export default function useFetch({ inputObject }) {
   }, [requestObject.endpoint]);
 
   return { state };
-}
+};
+
+export default useFetch;

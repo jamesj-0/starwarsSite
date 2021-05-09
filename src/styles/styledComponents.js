@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const Header = styled.header``;
-
-export const HeaderTitle = styled.h1``;
-
-export const Footer = styled.footer``;
-
 export const MainContainer = styled.main``;
 
 export const NavigationBar = styled.nav`
@@ -165,11 +159,16 @@ export const CardRow = styled.div`
   margin: 1rem auto;
 `;
 
-export const TopicSubtitle = styled.h3``;
-
-export const TopicTitle = styled.h2``;
-
-export const StarWarsLogo = styled.span``;
+export const MainText = styled.h1`
+  width: 80%;
+  font-size: 45px;
+  color: #fff;
+  font-family: JediFont;
+  margin: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 4px;
+`;
 
 export const PaginationContainer = styled.div`
   width: 80%;

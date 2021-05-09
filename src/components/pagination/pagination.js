@@ -1,15 +1,8 @@
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as SC from '../../styles/styledComponents';
 
-export default function Pagination({
-  pageNumber,
-  setPageNumber,
-  setUrl,
-  topic: page,
-}) {
+const Pagination = ({ pageNumber, setPageNumber, setUrl, topic: page }) => {
   const handleClick = (e) => {
     let number = pageNumber;
     number =
@@ -43,6 +36,8 @@ export default function Pagination({
           role="button"
           value="-"
           className={pageNumber === 1 ? 'disabled' : ''}
+          onKeyPress={handleClick}
+          tabIndex="0"
         >
           previous
         </span>
@@ -51,6 +46,8 @@ export default function Pagination({
         <span
           onClick={handleClick}
           role="button"
+          onKeyPress={handleClick}
+          tabIndex="0"
           value="+"
           className={
             page === 'films' ||
@@ -68,7 +65,9 @@ export default function Pagination({
       </div>
     </SC.PaginationContainer>
   );
-}
+};
+
+export default Pagination;
 
 Pagination.propTypes = {
   setPageNumber: PropTypes.func.isRequired,

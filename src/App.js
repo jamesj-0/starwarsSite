@@ -15,12 +15,9 @@ const topicItems = [
 
 function App() {
   const [url, setUrl] = React.useState('https://swapi.dev/api/films/?page=1');
-
-  // const [url, setUrl] = React.useState('https://swapi.dev/api/films/1/');
   const [topic, setTopic] = React.useState('films');
   const [view, setView] = React.useState('browse');
   const [pageNumber, setPageNumber] = React.useState(1);
-  // ('topic');
   const { state: response } = useFetch({
     inputObject: { endpoint: url, method: 'GET' },
   });

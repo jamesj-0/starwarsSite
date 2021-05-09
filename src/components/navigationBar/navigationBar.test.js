@@ -1,31 +1,80 @@
-// import React from 'react';
+import React from 'react';
+import { render } from '@testing-library/react';
+import NavigationBar from './navigationBar';
 
-// import { render } from '@testing-library/react';
+test('Navbar renders', () => {
+  /* arrange */
+  const topicItems = [
+    'People',
+    'Planets',
+    'Films',
+    'Species',
+    'Vehicles',
+    'Starships',
+  ];
 
-// import NavigationBar from './navigationBar';
+  const setTopic = jest.fn();
+  const setUrl = jest.fn();
+  const setView = jest.fn();
+  const setPageNumber = jest.fn();
 
-describe('Hello world test', () => {
-  test('Tests run in this component', () => {
-    expect(3).toBe(3);
-  });
+  const topic = 'films';
+
+  /* act */
+  const { getByText } = render(
+    <NavigationBar
+      topicItems={topicItems}
+      setTopic={setTopic}
+      topic={topic}
+      setView={setView}
+      setUrl={setUrl}
+      setPageNumber={setPageNumber}
+    />,
+  );
+
+  /* assert */
+  const browseText = getByText(/browse/i);
+  expect(browseText).toBeInTheDocument();
 });
 
-// test('Navbar renders', () => {
-//   /* arrange */
-//   /* act */
-//   const { getByText } = render(<NavigationBar topicItems={['topics']} />);
+test('Navbar renders a list of topicItems', () => {
+  /* arrange */
+  const topicItems = [
+    'People',
+    'Planets',
+    'Films',
+    'Species',
+    'Vehicles',
+    'Starships',
+  ];
 
-//   /* assert */
-//   const browseText = getByText(/browse/i);
-//   expect(browseText).toBeInTheDocument();
-// });
+  const setTopic = jest.fn();
+  const setUrl = jest.fn();
+  const setView = jest.fn();
+  const setPageNumber = jest.fn();
 
-// test('Navbar renders a list of topicItems', () => {
-//   /* arrange */
-//   /* act */
-//   const { getByText } = render(<NavigationBar topicItems={['topics']} />);
+  const topic = 'films';
 
-//   /* assert */
-//   const listItem = getByText(/topics/i);
-//   expect(listItem).toBeInTheDocument();
-// });
+  /* act */
+  const { getByText } = render(
+    <NavigationBar
+      topicItems={topicItems}
+      setTopic={setTopic}
+      topic={topic}
+      setView={setView}
+      setUrl={setUrl}
+      setPageNumber={setPageNumber}
+    />,
+  );
+
+  /* assert */
+  const listItemSpecies = getByText(/Species/i);
+  const listItemPeople = getByText(/People/i);
+  const listItemFilms = getByText(/Films/i);
+  const listItemPlanets = getByText(/Planets/i);
+
+  expect(listItemSpecies).toBeInTheDocument();
+  expect(listItemPeople).toBeInTheDocument();
+  expect(listItemFilms).toBeInTheDocument();
+  expect(listItemPlanets).toBeInTheDocument();
+});

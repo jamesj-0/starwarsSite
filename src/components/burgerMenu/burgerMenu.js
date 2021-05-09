@@ -1,11 +1,9 @@
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as SC from '../../styles/styledComponents';
 import './burgerMenu.css';
 
-export default function BurgerMenu({ setNavOpen, navOpen }) {
+const BurgerMenu = ({ setNavOpen, navOpen }) => {
   const handleClick = () => {
     setNavOpen(!navOpen);
   };
@@ -17,13 +15,16 @@ export default function BurgerMenu({ setNavOpen, navOpen }) {
         id="burger"
         className={navOpen ? 'active' : ''}
         role="button"
+        tabIndex="0"
+        onKeyPress={handleClick}
       >
         <div className="bun top" />
         <div className="bun bottom" />
       </div>
     </SC.MenuContainer>
   );
-}
+};
+export default BurgerMenu;
 
 BurgerMenu.propTypes = {
   setNavOpen: PropTypes.func.isRequired,

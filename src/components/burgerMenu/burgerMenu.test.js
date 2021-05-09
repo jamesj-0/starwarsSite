@@ -1,14 +1,6 @@
 import React from 'react';
-
 import { render, fireEvent } from '@testing-library/react';
-
 import BurgerMenu from './burgerMenu';
-
-describe('Hello world test', () => {
-  test('Tests run in this component', () => {
-    expect(3).toBe(3);
-  });
-});
 
 test('Burger menu renders', () => {
   /* arrange */

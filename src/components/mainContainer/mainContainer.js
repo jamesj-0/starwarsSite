@@ -5,7 +5,7 @@ import Pagination from '../pagination/pagination';
 
 import CardRow from '../cardRow/cardRow';
 
-export default function MainContainer({
+const MainContainer = ({
   topic,
   data: apiResponse,
   setUrl,
@@ -13,36 +13,36 @@ export default function MainContainer({
   setView,
   pageNumber,
   setPageNumber,
-}) {
-  return (
-    <SC.TopicPage>
-      <SC.TopicInfo>
-        <h3>StarWars DB</h3>
-      </SC.TopicInfo>
-      <SC.StyledLineBreak />
-      <div>
-        <div key={`container-${apiResponse?.results}-${topic}`}>
-          <h3 className="card-data-title">{topic}</h3>
-          {CardRow({
-            value: apiResponse?.results?.map(({ url }) => url),
-            label: topic,
-            setUrl,
-            setTopic,
-            setView,
-            numberOfColumns: 3,
-          })}
-          <SC.StyledLineBreak />
-        </div>
-        <Pagination
-          setPageNumber={setPageNumber}
-          pageNumber={pageNumber}
-          setUrl={setUrl}
-          topic={topic}
-        />
+}) => (
+  <SC.TopicPage>
+    <SC.TopicInfo>
+      <SC.MainText>StarWars DB</SC.MainText>
+    </SC.TopicInfo>
+    <SC.StyledLineBreak />
+    <div>
+      <div key={`container-${apiResponse?.results}-${topic}`}>
+        <h3 className="card-data-title">{topic}</h3>
+        {CardRow({
+          value: apiResponse?.results?.map(({ url }) => url),
+          label: topic,
+          setUrl,
+          setTopic,
+          setView,
+          numberOfColumns: 3,
+        })}
+        <SC.StyledLineBreak />
       </div>
-    </SC.TopicPage>
-  );
-}
+      <Pagination
+        setPageNumber={setPageNumber}
+        pageNumber={pageNumber}
+        setUrl={setUrl}
+        topic={topic}
+      />
+    </div>
+  </SC.TopicPage>
+);
+
+export default MainContainer;
 
 MainContainer.propTypes = {
   topic: PropTypes.string.isRequired,

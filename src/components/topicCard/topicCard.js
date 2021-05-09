@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as SC from '../../styles/styledComponents';
 import useFetch from '../../hooks/requestHook/useFetchHook';
 
-export default function TopicCard({ url, setUrl, setTopic, topic, setView }) {
+const TopicCard = ({ url, setUrl, setTopic, topic, setView }) => {
   const { state: response } = useFetch({
     inputObject: { endpoint: url, method: 'GET' },
   });
@@ -23,7 +23,12 @@ export default function TopicCard({ url, setUrl, setTopic, topic, setView }) {
   };
 
   return (
-    <SC.TopicCard onClick={handleClick}>
+    <SC.TopicCard
+      onClick={handleClick}
+      role="button"
+      onKeyPress={handleClick}
+      tabIndex="0"
+    >
       {response.status === 'fetched' && (
         <>
           <p>{response.data.data.name || response.data.data.title}</p>
@@ -32,7 +37,9 @@ export default function TopicCard({ url, setUrl, setTopic, topic, setView }) {
       )}
     </SC.TopicCard>
   );
-}
+};
+
+export default TopicCard;
 
 TopicCard.propTypes = {
   url: PropTypes.string.isRequired,

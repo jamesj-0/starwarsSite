@@ -1,9 +1,8 @@
 import React from 'react';
-import { render,  } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Tests are running', () => {
   render(<App />);
-	expect(true).toBeTruthy();
-  // expect(linkElement).toBeInTheDocument();
+  expect(true).toBeTruthy();
 });

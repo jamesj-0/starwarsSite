@@ -1,28 +1,43 @@
-// import React from 'react';
+import React from 'react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { render, waitFor, screen } from '@testing-library/react';
+import TopicCard from './topicCard';
 
-// import { render } from '@testing-library/react';
+const server = setupServer(
+  rest.get('https://swapi.dev/api/people/2/', (req, res, ctx) =>
+    res(ctx.json({ name: 'C-3PO' })),
+  ),
+);
 
-// import TopicCard from './topicCard';
-
-describe('Hello world test', () => {
-  test('Tests run in this component', () => {
-    expect(3).toBe(3);
-  });
+beforeAll(() => server.listen());
+afterEach(() => {
+  server.resetHandlers();
 });
+afterAll(() => server.close());
 
-// test('Topic Card renders', () => {
-//   /* arrange */
-// 	  const mockCallBack = jest.fn();
-//   const navOpen = false;
+test('Topic Card renders', async () => {
+  /* arrange */
+  const setTopic = jest.fn();
+  const setUrl = jest.fn();
+  const setView = jest.fn();
+  const topic = 'people';
 
-//   /* act */
-//   const { getByRole } = render(
-//     <BurgerMenu setNavOpen={mockCallBack} navOpen={navOpen} />,
+  const url = 'https://swapi.dev/api/people/2/';
 
-//   /* act */
-//   const { getByText } = render(<TopicCard url={url}  setUrl={setUrl}  setTopic={setTopic} topic={topic} setView={setView}/>)
+  /* act */
+  render(
+    <TopicCard
+      url={url}
+      setUrl={setUrl}
+      setTopic={setTopic}
+      topic={topic}
+      setView={setView}
+    />,
+  );
 
-//   /* assert */
-//   const topicCard = getByText(/Robot/i);
-//   expect(topicCard).toBeInTheDocument();
-// });
+  const card = await waitFor(() => screen.getByText(/C-3PO/i));
+
+  /* assert */
+  expect(card).toBeInTheDocument();
+});

@@ -1,6 +1,4 @@
 import { renderHook } from '@testing-library/react-hooks';
-
-// useFetch.test.js
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import useFetch from './useFetchHook';

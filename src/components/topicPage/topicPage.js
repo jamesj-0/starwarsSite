@@ -1,19 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as SC from '../../styles/styledComponents';
-
 import { data, sortTopicData } from '../../utils/utilsFunctions';
-
 import CardRow from '../cardRow/cardRow';
 
-export default function TopicPage({
-  topic,
-  data: apiResponse,
-  setUrl,
-  setTopic,
-  setView,
-}) {
+const TopicPage = ({ topic, data: apiResponse, setUrl, setTopic, setView }) => {
   const topicData = sortTopicData({
     input: apiResponse,
     topic,
@@ -58,7 +49,9 @@ export default function TopicPage({
       </div>
     </SC.TopicPage>
   );
-}
+};
+
+export default TopicPage;
 
 TopicPage.propTypes = {
   topic: PropTypes.string.isRequired,

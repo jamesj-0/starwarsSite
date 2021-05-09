@@ -9,3 +9,9 @@ body {
     url('./fonts/DINCondensedWeb.otf') format('opentype');
   font-weight: normal;
 }
+
+@font-face {
+  font-family: 'JediFont';
+  src: local('JediFont'), url('./fonts/Strjmono.ttf') format('truetype');
+  font-weight: normal;
+}

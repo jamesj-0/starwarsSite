@@ -1,18 +1,16 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import BurgerMenu from '../burgerMenu/burgerMenu';
 import * as SC from '../../styles/styledComponents';
 
-export default function NavigationBar({
+const NavigationBar = ({
   topicItems,
   setView,
   setUrl,
   setTopic,
   topic: currentTopic,
   setPageNumber,
-}) {
+}) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   const clickHandler = (e) => {
@@ -33,6 +31,9 @@ export default function NavigationBar({
             onClick={clickHandler}
             key={`listItem-container-${topic}`}
             value={topic.toLowerCase()}
+            onKeyPress={clickHandler}
+            role="button"
+            tabIndex="0"
           >
             <SC.HighlightedSpan
               key={`listItem-highlighted-${topic}`}
@@ -50,7 +51,8 @@ export default function NavigationBar({
       </SC.NavigationList>
     </SC.NavigationBar>
   );
-}
+};
+export default NavigationBar;
 
 NavigationBar.propTypes = {
   topicItems: PropTypes.arrayOf(PropTypes.string).isRequired,
