@@ -3,18 +3,23 @@ import PropTypes from 'prop-types';
 import * as SC from '../../styles/styledComponents';
 import useFetch from '../../hooks/requestHook/useFetchHook';
 
-export default function TopicCard({ url, setUrl, setTopic, topic }) {
+export default function TopicCard({ url, setUrl, setTopic, topic, setView }) {
   const { state: response } = useFetch({
     inputObject: { endpoint: url, method: 'GET' },
   });
 
   const handleClick = () => {
-    setTopic(
-      topic === 'characters' || topic === 'residents' || topic === 'pilots'
-        ? 'people'
-        : topic,
-    );
+    let pageTopic = topic;
+    if (topic === 'characters' || topic === 'residents' || topic === 'pilots') {
+      pageTopic = 'people';
+    }
+    if (topic === 'homeworld') {
+      pageTopic = 'planets';
+    }
+
+    setTopic(pageTopic);
     setUrl(url);
+    setView('topic');
   };
 
   return (
@@ -34,4 +39,5 @@ TopicCard.propTypes = {
   setUrl: PropTypes.func.isRequired,
   topic: PropTypes.string.isRequired,
   setTopic: PropTypes.func.isRequired,
+  setView: PropTypes.func.isRequired,
 };

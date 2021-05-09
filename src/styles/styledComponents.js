@@ -171,6 +171,27 @@ export const TopicTitle = styled.h2``;
 
 export const StarWarsLogo = styled.span``;
 
+export const PaginationContainer = styled.div`
+  width: 80%;
+  margin: 1rem auto;
+  font-family: DINCondensed;
+
+  & span {
+    color: #fff;
+    cursor: pointer;
+
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  & .disabled {
+    color: #464646;
+    cursor: auto;
+  }
+`;
+
 export const MenuContainer = styled.div`
   position: relative;
 `;
