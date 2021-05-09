@@ -64,7 +64,6 @@ export const TopicPage = styled.article`
   border-style: solid;
   border-width: 2px;
   border-color: #5a2b34;
-  width: 50%rem;
 
   & .card-data-title {
     margin: 2rem auto;
